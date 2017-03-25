@@ -1,0 +1,14 @@
+<!--
+   Record all victoria robot data automatically in one big rosbag. This includes: 
+   - camera images and depth information, 
+   - IMU, bumper and robot position
+   - rosout
+   This assume that the robot is on and running
+-->
+
+<launch>
+
+  <node pkg="rosbag" type="record" name="victoria_rosbag_record"
+       args="record -o /tmp/victoria-simulation-data /camera/rgb/camera_info /camera/rgb/image_raw/compressed  /camera/rgb/image_raw/compressed/parameter_descriptions /camera/rgb/image_raw/compressedDepth /camera/rgb/image_raw/compressedDepth/parameter_descriptions /clock /cmd_vel /e_stop /imu/data /navsat/fix /odometry/filtered /rosout /tf /tf_static /victoria_velocity_controller/cmd_vel /victoria_velocity_controller/odom /rosout /rosout_agg"/>
+
+</launch>
